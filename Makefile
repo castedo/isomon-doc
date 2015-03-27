@@ -20,7 +20,7 @@ build/reference.xml : build/boostbook.xml
 	xsltproc xsl/boostbook/docbook.xsl build/boostbook.xml > build/reference.xml
 
 build/boostbook.xml : build/xml/all.xml
-	xsltproc xsl/doxygen2boostbook.xsl build/xml/all.xml > build/boostbook.xml
+	xsltproc xsl/boostbook/doxygen/doxygen2boostbook.xsl build/xml/all.xml > build/boostbook.xml
 
 build/xml/all.xml : build/xml
 	xsltproc build/xml/combine.xslt build/xml/index.xml > build/xml/all.xml
