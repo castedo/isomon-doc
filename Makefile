@@ -1,3 +1,5 @@
+ISOMON=../isomon
+
 all: dist dist/index.html dist/resources/boostbook.css dist/isomon_currency.hpp dist/isomon_money.hpp
 
 dist:
@@ -23,15 +25,15 @@ build/boostbook.xml : build/xml/all.xml
 build/xml/all.xml : build/xml
 	xsltproc build/xml/combine.xslt build/xml/index.xml > build/xml/all.xml
 
-build/xml : reference.dox ../currency.hpp ../currency_data.h
+build/xml : reference.dox ${ISOMON}/currency.hpp ${ISOMON}/currency_data.h
 	rm -rf build/xml
 	doxygen reference.dox
 
 
-dist/isomon_currency.hpp : include_definitions.h ../iso_table_data.h ../currency_data.h ../currency.hpp
+dist/isomon_currency.hpp : include_definitions.h ${ISOMON}/iso_table_data.h ${ISOMON}/currency_data.h ${ISOMON}/currency.hpp
 	python gen_unified_header.py $^ > $@
 
-dist/isomon_money.hpp : include_definitions.h ../iso_table_data.h ../currency_data.h ../currency.hpp ../money.hpp ../money_calc.hpp
+dist/isomon_money.hpp : include_definitions.h ${ISOMON}/iso_table_data.h ${ISOMON}/currency_data.h ${ISOMON}/currency.hpp ${ISOMON}/money.hpp ${ISOMON}/money_calc.hpp
 	python gen_unified_header.py $^ > $@
 
 .PHONY : clean all
