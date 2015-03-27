@@ -23,7 +23,7 @@
     <td align="left">
       <img src="resources/currency_exchange.png" alt="currency"/>
     </td><td align="right">
-      <a href="http://code.google.com/p/isomon/">code.google.com</a>
+      <a href="http://github.com/castedo/isomon">github.com/castedo/isomon</a>
     </td>
   </tr></table>
 </xsl:template>
